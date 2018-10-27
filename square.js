@@ -8,14 +8,15 @@ class Square {
         console.log('Placing symbol....');
         if (counter === 0 && this.box === '') {
             this.box = 'X';
-            counter = 1;
+            return true; 
         }
         else if (counter === 1 && this.box === '') {
             this.box = 'O';
-            counter = 0; 
+            return true; 
         }
         else {
             console.log('This square has already been marked!');
+            return false; 
         }
     }
 }

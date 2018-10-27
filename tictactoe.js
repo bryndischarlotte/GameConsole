@@ -35,7 +35,12 @@ function TicTacToe() {
             console.log('You have selected: "', answer, '"');
 
             // Player move 
-            game.board.grid[row][col].makeMove(counter);
+            if(game.board.grid[row][col].makeMove(counter) === true) {
+                changePlayer(); 
+            }
+            else {
+                game.board.grid[row][col].makeMove(counter);
+            }
             console.log("It's your turn: " + game.players[counter].symbol);
             console.log(game.board.grid);
             game.countMoves();
@@ -47,6 +52,14 @@ function TicTacToe() {
         });
     };
     recursiveAsyncReadLine();
+}
+function changePlayer() {
+    if(counter === 0) {
+        counter = 1; 
+    }
+    else {
+        counter = 0; 
+    }
 }
 
 TicTacToe();
